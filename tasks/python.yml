@@ -1,0 +1,14 @@
+---
+# file: roles/python/tasks/python.yml
+
+- name: add python ppa
+  apt_repository: repo='ppa:fkrull/deadsnakes'
+
+- name: update packages for python repo
+  apt: update_cache=yes
+
+- name: install latest latest python packages
+  apt: pkg={{item}} state=latest
+  with_items:
+    - python3.5
+    - python3.5-dev

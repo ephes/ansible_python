@@ -1,0 +1,4 @@
+---
+# tasks file for roles/python
+
+- include: python.yml tags=python
